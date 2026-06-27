@@ -6,6 +6,8 @@
 ![Protocol](https://img.shields.io/badge/Protocol-RTMP%20%7C%20HLS%20%7C%20SRT-blue.svg)
 ![Hardware](https://img.shields.io/badge/Hardware-HDMI%20Encoders-lightgrey.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
+[![HitCount](https://hits.dwyl.com/sohag1192/Live-TV-RTMP-HLS-M3U8.svg?style=flat)](http://hits.dwyl.com/sohag1192/Live-TV-RTMP-HLS-M3U8)
+
 
 ---
 
@@ -68,7 +70,7 @@ Run the following commands on your Ubuntu Server:
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/sohag1192/NGINX-with-the-RTMP-module-and-configures-scripts.git](https://github.com/sohag1192/NGINX-with-the-RTMP-module-and-configures-scripts.git)
+git clone https://github.com/sohag1192/NGINX-with-the-RTMP-module-and-configures-scripts.git
 
 # 2. Enter the directory
 cd NGINX-with-the-RTMP-module-and-configures-scripts
