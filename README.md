@@ -11,7 +11,7 @@
 
 ## 📖 Overview
 
-This repository provides a complete A-to-Z guide to building a broadcast-grade Live TV streaming infrastructure. It covers how to capture video from physical devices using a **Hardware Encoder**, send that feed to a **Media Server** (using either free NGINX or enterprise Flussonic), and distribute it globally via **HLS (M3U8)** to Smart TVs, smartphones, and web players.
+This repository provides a complete A-to-Z guide to building a broadcast-grade Live TV streaming infrastructure. It covers how to capture video from physical devices using a **Hardware Encoder**, send that feed to a **Media Server** (using our automated NGINX setup or enterprise Flussonic), and distribute it globally via **HLS (M3U8)** to Smart TVs, smartphones, and web players.
 
 ## 🏗️ System Architecture
 
@@ -24,7 +24,7 @@ Below is the complete flow of how the video travels from the source to the viewe
  |  4K Camera       | --(HDMI)-+                                                                         +--> |  Smart TV        |
  +------------------+          |                                                                         |    +------------------+
                                v   +-----------------------+           +-------------------+             |
- +------------------+              |               |                   |   Ubuntu Server   |             |    +------------------+
+ +------------------+              | TBS2801 Professional  |           |   Ubuntu Server   |             |    +------------------+
  |  Playstation     | --(HDMI)---> | 4K 60Hz HDMI Encoder  | --(WAN)-> |                   | ---(HLS)----+--> |  Mobile Phone    |
  +------------------+              | (H.264 / H.265)       | (RTMP/SRT)|  NGINX-RTMP   OR  | (.m3u8)     |    |  (iOS / Android) |
                                ^   +-----------------------+           |  Flussonic        |             |    +------------------+
@@ -58,52 +58,30 @@ To capture physical devices (Cameras, Consoles, DVD players), we use a dedicated
 
 ## 🛠️ Step 2: Media Server Setup (Choose One)
 
-You need a server to receive the encoder's feed and distribute it to thousands of users. Choose either the Open-Source (Free) or Enterprise method.
+You need a server to receive the encoder's feed and distribute it to thousands of users. Choose either our fully automated Open-Source method or the Enterprise method.
 
-### Option A: NGINX-RTMP & HLS (Open Source / Free)
+### Option A: Automated NGINX-RTMP & HLS (Open Source / Free)
 
-*Best for budget setups, small-to-medium streaming, and developers.*
+*Best for budget setups, small-to-medium streaming, and developers. We have created a script that handles all dependencies and configurations for you automatically.*
 
-**1. Install NGINX and RTMP module on Ubuntu:**
-
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install build-essential ffmpeg libnginx-mod-rtmp nginx -y
-
-```
-
-**2. Configure `nginx.conf`:**
-Add the following to `/etc/nginx/nginx.conf` to convert incoming RTMP to HLS:
-
-```nginx
-rtmp {
-    server {
-        listen 1935;
-        chunk_size 4096;
-
-        application live {
-            live on;
-            record off;
-            
-            # Turn on HLS
-            hls on;
-            hls_path /var/www/html/stream/hls;
-            hls_fragment 3;
-            hls_playlist_length 60;
-        }
-    }
-}
-
-```
-
-**3. Restart the Server:**
+Run the following commands on your Ubuntu Server:
 
 ```bash
-sudo mkdir -p /var/www/html/stream/hls
-sudo chown -R www-data:www-data /var/www/html/stream
-sudo systemctl restart nginx
+# 1. Clone the repository
+git clone [https://github.com/sohag1192/NGINX-with-the-RTMP-module-and-configures-scripts.git](https://github.com/sohag1192/NGINX-with-the-RTMP-module-and-configures-scripts.git)
+
+# 2. Enter the directory
+cd NGINX-with-the-RTMP-module-and-configures-scripts
+
+# 3. Make the script executable
+chmod +x setup.sh
+
+# 4. Run the installation script
+sudo ./setup.sh
 
 ```
+
+*That's it! The script installs NGINX, compiles the RTMP module, and configures the HLS settings automatically.*
 
 ---
 
@@ -142,6 +120,8 @@ Once your encoder is pushing video to the server, you can watch it anywhere!
 http://YOUR_SERVER_IP/stream/hls/stream_key.m3u8
 
 ```
+
+*(Note: Replace `stream_key` with the key you set in your encoder).*
 
 ### Where to play it:
 
