@@ -131,16 +131,18 @@ http://YOUR_SERVER_IP/stream/hls/stream_key.m3u8
 
 ---
 
-## 🤝 Contributing
+## 🙋 Contributing
 
-Contributions, issues, and feature requests are welcome!
-Check the [issues page](https://www.google.com/search?q=https://github.com/sohag1192/Live-TV-RTMP-HLS-M3U8/issues) if you want to contribute.
+* Issues and pull requests are welcome.
+* If you find bugs or want to suggest improvements, please open an issue or PR.
 
-## 📝 License
+📬 **Contact via Mail:** [sohag1192@gmail.com](mailto:sohag1192@gmail.com)
 
-This project is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
+📬 **Contact via Telegram:** [Md_Sohag_Rana](https://t.me/Md_Sohag_Rana)
 
 ---
 
-*Maintained by [@sohag1192*](https://github.com/sohag1192)
+## 🌟 Support
+
+If you enjoy this project, please ⭐ it on GitHub — your support motivates future updates!
 
