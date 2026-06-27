@@ -6,8 +6,7 @@
 ![Protocol](https://img.shields.io/badge/Protocol-RTMP%20%7C%20HLS%20%7C%20SRT-blue.svg)
 ![Hardware](https://img.shields.io/badge/Hardware-HDMI%20Encoders-lightgrey.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-[![HitCount](https://hits.dwyl.com/sohag1192/Live-TV-RTMP-HLS-M3U8.svg?style=flat)](http://hits.dwyl.com/sohag1192/Live-TV-RTMP-HLS-M3U8)
-
+[![Views](https://komarev.com/ghpvc/?username=sohag1192-Live-TV-RTMP-HLS-M3U8&label=Views&color=blue&style=flat)](https://github.com/sohag1192/Live-TV-RTMP-HLS-M3U8)
 
 ---
 
@@ -26,7 +25,7 @@ Below is the complete flow of how the video travels from the source to the viewe
  |  4K Camera       | --(HDMI)-+                                                                         +--> |  Smart TV        |
  +------------------+          |                                                                         |    +------------------+
                                v   +-----------------------+           +-------------------+             |
- +------------------+              | TBS2801 Professional  |           |   Ubuntu Server   |             |    +------------------+
+ +------------------+              |                       |           |   Ubuntu Server   |             |    +------------------+
  |  Playstation     | --(HDMI)---> | 4K 60Hz HDMI Encoder  | --(WAN)-> |                   | ---(HLS)----+--> |  Mobile Phone    |
  +------------------+              | (H.264 / H.265)       | (RTMP/SRT)|  NGINX-RTMP   OR  | (.m3u8)     |    |  (iOS / Android) |
                                ^   +-----------------------+           |  Flussonic        |             |    +------------------+
@@ -70,7 +69,7 @@ Run the following commands on your Ubuntu Server:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/sohag1192/NGINX-with-the-RTMP-module-and-configures-scripts.git
+git clone [https://github.com/sohag1192/NGINX-with-the-RTMP-module-and-configures-scripts.git](https://github.com/sohag1192/NGINX-with-the-RTMP-module-and-configures-scripts.git)
 
 # 2. Enter the directory
 cd NGINX-with-the-RTMP-module-and-configures-scripts
